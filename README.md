@@ -1,2 +1,4 @@
 # Blog-useless
 没用的文章备份
+关于Flarum的那篇就是用的FlarumChina，不算完整的教程所以之后会重新写
+有些真的没用就直接删了
