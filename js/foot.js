@@ -1,0 +1,2 @@
+<style>@media (max-width: 1024px){li.item-forumStatisticsWidget{display:none;}} .IndexPage .DiscussionListItem-info>.item-tags,.UserPage .DiscussionListItem-info>.item-tags{margin-right: 0; position: inherit; padding-right: 10px } .IndexPage .DiscussionListItem-info>.item-tags,.UserPage .DiscussionListItem-info>.item-tags { transition: none; -webkit-mask-image: none }</style>
+<style>.Hero-close{display:none;}</style>
