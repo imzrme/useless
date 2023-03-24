@@ -1,4 +1,6 @@
-# Blog-useless
-没用的文章备份
+# useless
+没用的文件备份
+articles文件夹中是不要的博客文章
 关于Flarum的那篇就是用的FlarumChina，不算完整的教程所以之后会重新写
 有些真的没用就直接删了
+其他文件夹是早期flarum的文件备份，后期可能会加入弃用的博客js和css配置
