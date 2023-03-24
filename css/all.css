@@ -1,0 +1,291 @@
+@media (min-width: 769px) {
+    a.scroll-up {
+        padding: 9px !important;/* 自定义距离（单位：像素） */
+     }
+     
+ /*个人资料Banner颜色*/
+ .UserCard.Hero.UserHero {
+     background: #fc9e44 !important;
+     }
+     
+ /*设置论坛背景图片*/
+ body {
+     background: url(https://img.mzrme.com/2020/07/16/f9af97cebd14d.png) 10px fixed;
+     }
+ .App:before {
+     background: url(https://img.mzrme.com/2020/07/16/469f6f509832c.jpeg) 0 -653px;
+     }
+ .DiscussionPage-discussion {
+     background: url(https://img.mzrme.com/2020/07/16/35ce28e9d0585.png) no-repeat right -275px;
+     }
+     
+ /*标签背景*/
+ .Hero {
+     background: #63584f0d !important;
+     margin-bottom: 15px;
+     }
+     
+ /*标签*/
+ .Hero h2 {
+     font-size: 2em;
+     font-weight: bolder;
+     color: #191919;
+     }
+     
+ /*标签描述颜色*/
+ .Hero-subtitle {
+     color: #000;
+     }
+ }
+ /*回复方块化*/ 
+ .Post-body {
+     font-size: 14px;
+     line-height: 1.7;
+     position: relative;
+     overflow: auto;
+     overflow-wrap: break-word;
+     border-radius: 5px;
+     margin-top: 0;
+     border: 1px solid #f8f8f8;
+     box-shadow: 0 3px 9px 1px rgba(0,0,0,0.1) !important;
+     background: #fff;
+     padding: 20px;
+     min-height: 80px;
+     }
+ /*夜间立体*/
+ body.dark .Post-body {
+     font-size: 14px;
+     line-height: 1.7;
+     position: relative;
+     overflow: auto;
+     overflow-wrap: break-word;
+     border-radius: 5px;
+     margin-top: 0;
+     border: 1px solid #28211b;
+     box-shadow: 0 3px 9px 1px rgba(0,0,0,0.1) !important;
+     background: #fff0;
+     padding: 20px;
+     min-height: 80px;
+     }
+ /*头像方块化*/
+ .Avatar {
+     border-radius: 20% !important;
+ }
+ 
+ /* 导航栏位置调整 */
+ @media (max-width: 1120px) and (min-width: 768px){
+     .App-header .container {
+         width: auto;
+     }
+ }
+ @media (max-width: 1051px) and (min-width: 991px){
+     .Header-controls .Search:not(.focused) .Search-input{
+         max-width: 166px;
+         -webkit-transition: all .4s;
+         -o-transition: all .4s;
+         transition: all .4s;
+     }
+ }
+ 
+ /* 标签页表单位移修复 */
+ @media (min-width: 768px){
+     .TagDiscussionModal .Modal-content,
+     .TagDiscussionModal .TagsInput{
+         overflow: unset;
+     }
+ }
+ /* 会员名录页, 首页加载更多按钮尺寸 */
+ .UserDirectoryList-loadMore .Button,
+ .DiscussionList-loadMore .Button {
+      width: 50%;
+          border-radius: 30px;
+          margin-top: 30px;
+ }
+ .UserDirectoryList-loadMore {
+     text-align: center;
+ }
+ @media (max-width: 767px) {
+     .DiscussionList-loadMore {
+         padding-left: 15px;
+         padding-right: 15px;
+     }
+ }
+ 
+ /* 替换点赞, 回复按钮 */
+ .item-like .Button--link .Button-label,
+ .item-reply .Button--link .Button-label{
+     display: none;
+ }
+ .item-like .Button:before {
+     font-family: 'Font Awesome 5 Free';
+     font-weight: 600;
+     font-size: 14px;
+     content: '\f164';
+     vertical-align: -1px;
+ }
+ .item-reply .Button--link:before {
+     font-family: 'Font Awesome 5 Free';
+     font-weight: 600;
+     font-size: 15px;
+     content: '\f3e5';
+     margin-right: 4px;
+     vertical-align: -2px;
+ }
+ 
+ /* 首页主题点击量对齐 */
+ @media (min-width: 768px){
+     .IndexPage li.item-discussion-views {
+         margin-right: -70px;
+         width: 55px;
+     }
+ }
+ /* 反应按钮位置 */
+   .Post-actions {
+     margin-top: 5px;
+     }
+ 
+ /* 表格阴影去除 */
+ .Post .Post-body table{
+     box-shadow: none;
+ }
+ /* Yannis 风格调整 2020-3-5*/
+ @media (min-width:769px) {
+     body {
+     background-image:linear-gradient(to bottom,#f2f2f2,#ebebeb);
+     background-repeat:no-repeat;
+ }
+     .DiscussionHero .TagsLabel .TagLabel {
+     color: #4d698e;
+     font-size: 16px!important;
+ }
+ h3.DiscussionListItem-title {
+     padding-bottom: 3px;
+ }
+ 
+ .UserCard.Hero.UserHero {
+     background: #79a3dc!important;
+ }   
+ .DiscussionListItem {
+     margin-top:10px;
+ }
+ .DiscussionListItem-info {
+     color: #888;
+ }    
+ .EventPost-icon {
+     text-align:center;
+     margin-left:-19px;
+     width:64px;
+     font-size:22px;
+ }
+ .DiscussionListItem:hover {
+     background:#f7f7f7;
+ }    
+ .DiscussionList:not(.DiscussionList--searchResults) .read .DiscussionListItem-title {
+     color:#1b2028;
+ }
+ .scroll-up {
+     padding:9px!important;
+ }    
+ .DiscussionHero .TagsLabel .TagLabel.colored .TagLabel-text {
+     color:inherit !important;
+     font-size:16px;
+ }
+ .Scrubber-handle {
+     background-color:transparent!important;
+ }
+ kuoxo.com {
+     author:yannisme;
+ }    
+ .Hero h2 {
+     font-size:2em;
+     font-weight:bolder;
+     color:#191919;
+ }
+ .Hero-subtitle {
+     color:#000;
+     font-size:15px;
+     margin:8px 0 0;
+     line-height:1.5em;
+ }
+ .App-header .Button,.App-header .Button:hover {
+     color:#ffffff;
+ }
+ .UserPage .Hero h2 {
+     color:#ffffff;
+ }    
+ .Post-body>*:first-child,.Post-preview>*:first-child {
+     margin-top:0 !important;
+     margin-bottom:0;
+ }
+ .Post-actions {
+     margin-top:5px;
+ }
+ .Post-footer {
+     margin-top:10px;
+     margin-bottom:0;
+ }
+     .Post-header {
+     margin-bottom:10px;
+     color:#808080;
+ }
+ .PostStream-timeGap {
+     padding-top:0;
+     padding-bottom:0;
+ }
+ .Select-caret {
+     margin-left:5px;
+ }
+ .Post {
+     padding-bottom:10px;
+ }
+ .PostStream-timeGap span {
+     margin-top:-10px;
+     position:absolute;
+ }
+ .UserPage .Post-body {
+     box-shadow:none!important;
+ }
+ /* Yannis 其他调整 2020-3-5*/
+ ::-webkit-scrollbar {
+     /*滚动条整体样式*/
+         width:5px;
+     /*高宽分别对应横竖滚动条的尺寸*/
+         height:5px;
+ }
+ ::-webkit-scrollbar-thumb {
+     /*滚动条里面小方块*/
+     background:#4D698E;
+ }
+ ::-webkit-scrollbar-track {
+     /*滚动条里面轨道*/
+         background:#e8ecf3;
+ }
+ .Post-body blockquote {
+     border:2px dotted #667c99;
+ }
+ .Post-body pre {
+     border:2px dotted #a7a7a7;
+ }
+ @media (max-width: 767px){
+ .KvotheSub {
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }}
+ /* 私人讨论成员名颜色 */
+ .Hero .isPrivateDiscussion .RecipientLabel-text {
+     color: @config-primary-color;
+ }
+ /*手机隐藏广告*/
+ @media (maxdth:1130px) {.Flagrow-Ads-under-header a img {
+     max-width: 45%!important;
+ }
+ /* tags页面隐藏 */
+ .TagsPage-nav .item-forumStatisticsWidget {
+ display: none!important;
+ }
+ /*移动端隐藏*/
+ @media screen and (max-width: 600px) {
+      .item-forumStatisticsWidget {
+          display: none;
+     }
+ }
