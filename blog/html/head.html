@@ -1,0 +1,175 @@
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4GSNNJ');</script>
+<!-- End Google Tag Manager -->
+<script>
+    document.addEventListener('DOMContentLoaded', initReplayHandler);
+    function initReplayHandler() {
+        const comments = document.querySelector('#comments');
+        if (!comments) return;
+        const author = comments.querySelector('#author');
+        const email = comments.querySelector('#mail');
+        const url = comments.querySelector('#url');
+        const textarea = comments.querySelector('#textarea');
+        if (email && author && url && textarea) {
+            author.placeholder = '昵称（必填）';
+            email.placeholder = '回复通知邮箱（必填）';
+            url.placeholder = '网站（选填）';
+            textarea.placeholder = '听说认真评论的人最可爱哦！';
+        }
+        const commentForm = comments.querySelector('#comment-form');
+        const reply2View = document.querySelector('.reply2view');
+        if (commentForm && reply2View && reply2View.className === 'reply2view') {
+            const submit = commentForm.querySelector('#submit');
+            const template = sec => `评论提交成功，重载倒计时${sec}.`;
+            submit.setAttribute('data-posted', template(3));
+            const callback = (mutations, observer) => {
+                mutations.forEach(mutation => {
+                    mutation.addedNodes.forEach(node => {
+                        let status = null;
+                        if (typeof node.querySelector === 'function') {
+                            status = node.querySelector('.comment-meta .comment-posted');
+                        }
+                        if (status) {
+                            console.log('success observed.');
+                            let countDown = 2;
+                            const countDownWaiter = setInterval(() => {
+                                if (countDown < 0) return;
+                                status.innerText = template(countDown--);
+                                if (countDown === 0) {
+                                    $.pjax.reload({
+                                        url: location.href,
+                                        container: '#body',
+                                        fragment: '#body',
+                                        scrollTo: reply2View.scrollTop,
+                                        timeout: 8000
+                                    });
+                                    console.log('observation finished.');
+                                    clearInterval(countDownWaiter);
+                                    observer.disconnect();
+                                }
+                            }, 800);
+                        }
+                    });
+                });
+            };
+            const observer = new MutationObserver(callback);
+            commentForm.addEventListener('submit', () => {
+                console.log('start to observe...');
+                observer.observe(comments, { childList: true, subtree: true });
+            });
+        }
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', initOuterLinkInComment);
+    function initOuterLinkInComment() {
+        document.querySelectorAll('.comment-list a[href^="' + location.origin + '/go/"]').forEach(a => a.target = '_blank');
+    }
+</script>      
+<script>
+    document.addEventListener('DOMContentLoaded', initLiveDay);
+    function initLiveDay() {
+        const birthTime = '2017/8/21 10:23:12';
+        const template = (A, B, C, D) => `本站已勉强生存 ${A}天 ${B}时 ${C}分 ${D}秒.`;
+
+        /* 锚点开始 */
+        const container = footer.querySelector('.container');
+        const p = document.createElement('p');
+        container.insertBefore(p, container.firstElementChild);
+        /* 锚点结束*/
+
+        const msoad = 24 * 60 * 60 * 1000;
+        const warp = n => n > 9 ? n : '0' + n;
+        const toInt = n => warp(Math.floor(n));
+        setInterval(() => {
+            const lived = new Date() - new Date(birthTime);
+            const days = lived / msoad;
+            const intDays = toInt(days);
+            const hours = (days - intDays) * 24;
+            const intHours = toInt(hours);
+            const minutes = (hours - intHours) * 60;
+            const intMinutes = toInt(minutes);
+            const seconds = (minutes - intMinutes) * 60;
+            const intSeconds = toInt(seconds);
+            p.innerHTML = template(intDays, intHours, intMinutes, intSeconds);
+        }, 1000);
+    }
+</script>
+<script>
+    // 在代码块右上角添加复制按钮
+    document.addEventListener('DOMContentLoaded', initCodeCopyButton);
+    function initCodeCopyButton() {
+        function initCSS(callback) {
+            const css = `
+                .btn-code-copy {
+                    position: absolute;
+                    line-height: .6em;
+                    top: .2em;
+                    right: .2em;
+                    color: rgb(87, 87, 87);
+                }
+                .btn-code-copy:hover {
+                    color: rgb(145, 145, 145);
+                    cursor: pointer;
+                }
+                `;
+            const styleId = btoa('btn-code-copy').replace(/[=+\/]/g, '');
+            const head = document.getElementsByTagName('head')[0];
+            if (!head.querySelector('#' + styleId)) {
+                const style = document.createElement('style');
+                style.id = styleId;
+                if (style.styleSheet) {
+                    style.styleSheet.cssText = css;
+                } else {
+                    style.appendChild(document.createTextNode(css));
+                }
+                head.appendChild(style);
+            }
+            callback();
+        };
+        function copyTextContent(source) {
+            let result = false;
+            const target = document.createElement('pre');
+            target.style.opacity = '0';
+            target.textContent = source.textContent;
+            document.body.appendChild(target);
+            try {
+                const range = document.createRange();
+                range.selectNode(target);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+                result = true;
+            } catch (e) { console.log('copy failed.'); }
+            document.body.removeChild(target);
+            return result;
+        };
+        function initButton(pre) {
+            const code = pre.querySelector('code');
+            if (code) {
+                const preParent = pre.parentElement;
+                const newPreParent = document.createElement('div');
+                newPreParent.style = 'position: relative';
+                preParent.insertBefore(newPreParent, pre);
+                const copyBtn = document.createElement('div');
+                copyBtn.innerHTML = 'copy';
+                copyBtn.className = 'btn-code-copy';
+                copyBtn.addEventListener('click', () => {
+                    copyBtn.innerHTML = copyTextContent(code) ? 'success' : 'failure';
+                    setTimeout(() => copyBtn.innerHTML = 'copy', 250);
+                });
+                newPreParent.appendChild(copyBtn);
+                newPreParent.appendChild(pre);
+            }
+        };
+        const pres = document.querySelectorAll('pre');
+        if (pres.length !== 0) {
+            initCSS(() => pres.forEach(pre => initButton(pre)));
+        }
+    };
+</script>
